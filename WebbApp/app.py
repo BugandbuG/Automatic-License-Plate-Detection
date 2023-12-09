@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 BASE_PATH = os.getcwd()
 UPLOAD_PATH = os.path.join(
-    BASE_PATH, '/WebbApp/static/upload')
+    BASE_PATH, '/WebbApp')
+# UPLOAD_PATH = os.path.join(
+#     BASE_PATH, '/WebbApp/static/upload')
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -19,7 +21,7 @@ def index():
         text = OCR(path_save, filename)
 
         return render_template('index.html', upload=True, upload_image=filename, text=text)
-
+    print(app.template_folder)
     return render_template('index.html', upload=False)
 
 
