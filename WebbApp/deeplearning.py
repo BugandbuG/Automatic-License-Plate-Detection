@@ -3,12 +3,11 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from keras.preprocessing.image import load_img, img_to_array
 import pytesseract as pt
 
 model = tf.keras.models.load_model(
     '/object_detection.h5')
-
 
 def object_detection(path, filename):
     # Read image
