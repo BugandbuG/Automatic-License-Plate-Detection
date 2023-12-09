@@ -35,7 +35,7 @@ def object_detection(path, filename):
     # Convert into bgr
     image_bgr = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     cv2.imwrite(
-        '/Users/asik/Desktop/ANPR/WebbApp/static/predict/{}'.format(filename), image_bgr)
+        '/WebbApp/static/predict/{}'.format(filename), image_bgr)
     return coords
 
 
