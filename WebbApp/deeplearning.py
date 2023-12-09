@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import pytesseract as pt
 
 model = tf.keras.models.load_model(
-    '/Users/asik/Desktop/ANPR/object_detection.h5')
+    '/object_detection.h5')
 
 
 def object_detection(path, filename):
@@ -41,7 +41,7 @@ def object_detection(path, filename):
 
 def save_text(filename, text):
     name, ext = os.path.splitext(filename)
-    with open('/Users/asik/Desktop/ANPR/WebbApp/static/predict/{}.txt'.format(name), mode='w') as f:
+    with open('/WebbApp/static/predict/{}.txt'.format(name), mode='w') as f:
         f.write(text)
     f.close()
 
@@ -55,7 +55,7 @@ def OCR(path, filename):
     gray = cv2.cvtColor(roi_bgr, cv2.COLOR_BGR2GRAY)
     magic_color = apply_brightness_contrast(gray, brightness=40, contrast=70)
     cv2.imwrite(
-        '/Users/asik/Desktop/ANPR/WebbApp/static/roi/{}'.format(filename), roi_bgr)
+        '/WebbApp/static/roi/{}'.format(filename), roi_bgr)
 
     text = pt.image_to_string(magic_color, lang='eng', config='--psm 6')
     print(text)
